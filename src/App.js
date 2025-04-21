@@ -1,8 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -23,8 +22,8 @@ function App() {
       </header> */}
       <Router>
         <Routes>
-<Route path='/Login' element={<Login/>}/>
-{/* <Route path='/register' element={<Register/>}/> */}
+          <Route path="/Login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
     </div>

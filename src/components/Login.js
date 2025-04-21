@@ -3,19 +3,21 @@ import axios from "axios";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
-import login from "./login.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setpassword] = useState("");
+  const apiUrl = "http://localhost:8080";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/auth/login", { username, password });
+      const response = await axios.post(apiUrl + "/auth/login", {
+        username,
+        password,
+      });
       console.log("Login successful:", response.data);
     } catch (error) {
       console.error("Login failed:", error);
@@ -26,10 +28,10 @@ const Login = () => {
       <Box sx={{ mt: 8 }}>
         <Card
           variant="outlined"
-          sx={{ alignItems: "", maxWidth: 400, padding: 2 }}
+          sx={{ alignItems: "", maxWidth: 400, padding: 3 }}
         >
-          <Typography variant="h4">Login</Typography>
-          <form onSubmit={handleSubmit} className="">
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
             <TextField
               id="outlined-basic"
               label="User Name"
@@ -37,17 +39,18 @@ const Login = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="User Name"
-              className="textField"
+              sx={{ mb: 2 }}
             />
             <br />
             <TextField
+              type="password"
               id="outlined-basic"
               label="Password"
               variant="outlined"
               value={password}
               onChange={(e) => setpassword(e.target.value)}
               placeholder="Password"
-              className=""
+              sx={{ mb: 2 }}
             />
             <br />
             <Button variant="outlined" size="large">
