@@ -1,0 +1,8 @@
+.loginPage{
+    display: flex;
+    padding: 20px;
+    width: 400px;
+}
+.textField{
+    margin: 20px 0px;
+}
